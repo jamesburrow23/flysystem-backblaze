@@ -227,11 +227,11 @@ class BackblazeAdapter extends AbstractAdapter
         if ($recursive === true && $directory === '') {
             $regex = '/^.*$/';
         } elseif ($recursive === true && $directory !== '') {
-            $regex = '/^'.preg_quote($directory).'\/.*$/';
+            $regex = '/^'.preg_quote($directory, '/').'\/.*$/';
         } elseif ($recursive === false && $directory === '') {
             $regex = '/^(?!.*\\/).*$/';
         } elseif ($recursive === false && $directory !== '') {
-            $regex = '/^'.preg_quote($directory).'\/(?!.*\\/).*$/';
+            $regex = '/^'.preg_quote($directory, '/').'\/(?!.*\\/).*$/';
         } else {
             throw new \InvalidArgumentException();
         }
